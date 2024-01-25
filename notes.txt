@@ -1,12 +1,3 @@
-stock app postman:
-https://documenter.getpostman.com/view/19994125/2s9YkhikRu
-https://formspree.io/
-https://www.emailjs.com/
-
-Backend Server Linki => https://fullstack.clarusway.com/
-https://12104.fullstack.clarusway.com
-https://12104.fullstack.clarusway.com/documents/swagger/
-
 Proje Yazma Asamalari :
 
 ************ 1. bolum ************
