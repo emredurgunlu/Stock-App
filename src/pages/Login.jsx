@@ -10,8 +10,9 @@ import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 import { Formik, Form } from "formik";
 import { object, string } from "yup";
-import { login } from "../service/authApiCall";
+import useAuthCalls from "../service/useAuthCalls";
 const Login = () => {
+  const { login } = useAuthCalls();
   const loginSchema = object({
     email: string()
       .email("Lütfen geçerli bir email giriniz")
@@ -27,7 +28,7 @@ const Login = () => {
         /[@$!%*?&]+/,
         "Şifre en az bir özel karakter (@$!%*?&) içermelidir"
       ),
-  })
+  });
   return (
     <Container maxWidth="lg">
       <Grid
@@ -73,13 +74,13 @@ const Login = () => {
               // VERİLER GLOBAL STATE'E AKTARILABİLİR
               // NAVİGASYON YAPILABİLİR
               // TOST MESSAGE YAPILABİLİR
-              login(values)
+              login(values);
               actions.resetForm();
               // setSubmitting submit edilme sürecinde true oluyor, submit bittiğinde false çeviriyoruz, işimize yararsa kullanırız
               actions.setSubmitting(false);
             }}
           >
-            {({handleChange,values,touched,errors}) => (
+            {({ handleChange, values, touched, errors }) => (
               <Form>
                 <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                   <TextField
@@ -90,7 +91,7 @@ const Login = () => {
                     variant="outlined"
                     value={values.email}
                     onChange={handleChange}
-                    error={touched.email&&Boolean(errors.email)}
+                    error={touched.email && Boolean(errors.email)}
                     helperText={errors.email}
                   />
                   <TextField
@@ -101,7 +102,7 @@ const Login = () => {
                     variant="outlined"
                     value={values.password}
                     onChange={handleChange}
-                    error={touched.password&&Boolean(errors.password)}
+                    error={touched.password && Boolean(errors.password)}
                     helperText={errors.password}
                   />
                   <Button variant="contained" type="submit">
