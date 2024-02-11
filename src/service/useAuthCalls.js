@@ -18,7 +18,7 @@ const useAuthCalls = () => {
       // console.log("login data", data.data);
       // axios geleni data içine koyduğu için data.data şeklinde datayı çıkarmamız gerekiyor veya
       const {data} = await axios.post(
-        `${process.env.REACT_APP_BASE_URL}/auth/login`
+        `${process.env.REACT_APP_BASE_URL}/auth/login`,userInfo
       );
       dispatch(loginSuccess(data));
       toastSuccessNotify("Login işlemi basarili");
